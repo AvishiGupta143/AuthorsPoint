@@ -1,0 +1,61 @@
+{% extends "Base.html" %}
+{% block title %}
+    | Dashboard
+{% endblock %}
+{% block body_block %}
+
+<style>
+     .container{
+        margin-top: 50px;
+        width: 100%;
+        height: 680px;
+        background-image: url('/static/images/BG5.jpg');
+        background-size: cover;
+        background-position: bottom;
+        border-radius: 20px;
+        box-shadow: 0 0 12px #1d1212;
+        font-family: 'Yeseva One', cursive;
+        color: #7b1a29;
+    }
+    .container h3{
+        position: relative;
+        top: 18px;
+        left: 10px;
+    }
+    input{
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    button{
+        color: #FFB4A2;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background-color: #7b1a29;
+        padding: 10px;
+        transition: 0.2s ease;
+        margin-left: 20px;
+    }
+    button:hover
+    {
+        transform: scale(1.3);
+    }
+</style>
+
+<div class="container">
+    <h3>New Article:</h3>
+    <hr>
+    <form id="editor" class="NewArticle" action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+        {{ csrf_input }}
+        <h5>Add Title:</h5>
+        <input class="form-control" type="text" name="title">
+        <h5>Your Article:</h5>
+			{{ ckeditor.create() }}<br>
+        <button type="submit" class="button">Create Article</button>
+    </form>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends "Base.html" %}
+{% block title %}
+    | Home
+{% endblock %}
+{% block body_block %}
+
+<style>
+    .container{
+        margin-top: 20px;
+        width: 100%;
+        height: 650px;
+        background-image: url('/static/images/BG5.jpg');
+        background-size: cover;
+        background-position: bottom;
+        border-radius: 20px;
+        box-shadow: 0 0 12px #1d1212;
+    }
+    .container img{
+        width: 80%;
+        height: 350px;
+        margin-top: 50px;
+        margin-left: 110px;
+    }
+    .container p{
+        height: 100px;
+        text-align: center;
+        font-family: 'Yeseva One', cursive;
+        font-size: 18px;
+        color: #53111b;
+
+    }
+    .container h3{
+        margin-top: 30px;
+        text-align: center;
+        font-family: 'Yeseva One', cursive;
+        font-size: 25px;
+        color: #53111b;
+    }
+    .buttons span{
+        display: inline-block;
+    }
+    button{
+        color: #F2F3AE;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background-color: #53111b;
+        padding: 10px;
+        transition: 0.2s ease;
+        font-family: 'Yeseva One', cursive;
+    }
+    button:hover
+    {
+        transform: scale(1.3);
+    }
+    .Register{
+        margin-left: 400px;
+    }
+    h5{
+        margin-left: 20px; margin-right: 20px;
+    }
+    .Login{
+         width: 120px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .container{
+            height: 680px;
+            margin-bottom: 20px;
+        }
+      .container img{
+        width: 80%;
+        height: 250px;
+        margin-top: 30px;
+        margin-left: 50px;
+    }
+        .buttons{
+            margin-top: 175px;
+        }
+    button{
+        color: #F2F3AE;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background-color: #53111b;
+        padding: 10px;
+        transition: 0.2s ease;
+        font-family: 'Yeseva One', cursive;
+    }
+    button:hover
+    {
+        transform: scale(1.3);
+    }
+    .Register{
+         width: 120px;
+        height: 50px;
+        padding: 5px;
+        position: relative;
+        top: -30px;
+        margin-left: 70px;
+    }
+    .Login{
+        position: relative;
+        top: -20px;
+        height: 50px;
+    }
+    h5{
+        position: relative;
+        top: -20px;
+    }
+    }
+
+
+</style>
+
+<div class="container">
+    <img src ="/static/images/AuthorsPointHome.png">
+    <h3>  Welcome to Author'sPoint!</h3>
+    <p>
+      This is basically a platform for budding writers to create their own imaginations and craft them beautifully into words.
+        It is safe and secure as it will belong only to you and nobody and you save your ideas and writings here as Notes & Articles.
+        You may get started by Registering yourself first and logging into Author'sPoint to create your writings.
+    </p>
+
+    <div class="buttons">
+        {% if not session.logged_in %}
+        <span><a href="{{ url_for('Register') }}"><button class="Register">Register Now! </button></a></span>
+        <span><h5>OR</h5></span>
+        <span><a href="{{ url_for('Login') }}"><button class="Login">Login</button></a></span>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

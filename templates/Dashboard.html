@@ -1,0 +1,156 @@
+{% extends "Base.html" %}
+{% block title %}
+    | Dashboard
+{% endblock %}
+{% block body_block %}
+
+
+<style>
+     .container{
+         width: 100%;
+        margin-top: 50px;
+        background-image: url('/static/images/BG5.jpg');
+        background-size: cover;
+        background-position: bottom;
+        border-radius: 20px;
+        box-shadow: 0 0 12px #1d1212;
+        font-family: 'Yeseva One', cursive;
+        color: #53111b;
+         padding-bottom: 15px;
+    }
+     a{
+        transition: 0.2s ease;
+        color: #F2F3AE;
+    }
+     a:hover
+    {
+         color: #F2F3AE;
+    }
+    .container h2{
+        position: relative;
+        top: 60px;
+    }
+    .container p{
+        position: relative;
+        top: -13px;
+    }
+    .container small{
+        position: relative;
+        top: -20px;
+    }
+    span{
+        display: inline-block;
+    }
+    .BORDER{
+        width: 100%;
+        height: 1.5px;
+        background-color: #53111b;
+        margin-bottom: 15px;
+    }
+    button{
+        color: #F2F3AE;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background-color: #53111b;
+        padding: 10px;
+        transition: 0.2s ease;
+    }
+    button:hover
+    {
+        transform: scale(1.3);
+    }
+    .new{
+        margin-left: 650px;
+        position: relative;
+        top: 44px;
+        right: 20px;
+    }
+    .all{
+        margin-left: 950px;
+    }
+    #opt1{
+        width: 90px;
+        position: relative;
+        top: -20px;
+        left: 600px;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    #opt2{
+        width: 90px;
+        position: relative;
+        top: -85px;
+        left: 1000px;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+        span{
+        display: inline;
+    }
+        .new{
+            margin-left: 20px;
+            margin-top: 15px;
+            width: 120px;
+        }
+        .all{
+            margin-left: 300px;
+            width: 120px;
+        }
+
+        #opt1{
+            position: relative;
+            top: -20px;
+            width: 60px;
+            height: 30px;
+            padding: 0px;
+            margin-right: 20px;
+            margin-left:30px;
+        }
+        #opt2{
+            position: relative;
+            top: -70px;
+            left: 400px;
+            width: 60px;
+            height: 30px;
+            padding: 0px;
+        }
+
+
+    }
+
+
+
+
+
+</style>
+
+<div class="container">
+    <span><h2>DashBoard</h2></span>
+    <span><button class="new"><a href="{{ url_for('NewArticle') }}">New Article</a></button></span>
+    <span><button class="all"><a href="{{ url_for('YourArticles') }}">All Articles</a></button></span>
+    <hr>
+    <p>{{ session.name }}</p>
+    <div class="BORDER"></div>
+
+    <div>
+        {% for Article in Articles %}
+        <h4>{{Article.id}}) {{Article.title}}</h4>
+        <small>By {{Article.author}} on {{Article.create_date}}</small>
+        <button id="opt1" class="button"><a href="EditArticle/{{Article.id}}">Edit</a></button>
+        <form action="{{url_for('DeleteArticle', id=Article.id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" id="opt2" class="button">Delete</button>
+          </form>
+        <div class="BORDER"></div>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

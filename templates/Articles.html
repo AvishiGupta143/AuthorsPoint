@@ -1,0 +1,156 @@
+{% extends "Base.html" %}
+{% block title %}
+    | Articles
+{% endblock %}
+{% block body_block %}
+
+
+<style>
+    .container{
+        margin-top: 30px;
+        width: 100%;
+        height: 600px;
+        background-image: url('/static/images/BG5.jpg');
+        background-size: cover;
+        background-position: bottom;
+        border-radius: 20px;
+        box-shadow: 0 0 12px #1d1212;
+        text-align: center;
+        font-family: 'Yeseva One', cursive;
+        color: #53111b;
+    }
+    button{
+        display: block;
+        margin-bottom: 20px;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background-color: #53111b;
+        padding: 10px;
+        transition: 0.2s ease;
+    }
+    button:hover
+    {
+        transform: scale(1.3);
+    }
+    .COL1{
+        display: inline-block;
+        margin-right: 50px;
+        margin-top: 50px;
+    }
+    .COL2{
+        display: inline-block;
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+    a{
+        transition: 0.2s ease;
+        color: #F2F3AE;
+    }
+     a:hover
+    {
+         color: #F2F3AE;
+    }
+
+
+     h3{
+         position: relative;
+         top: 30px;
+         font-size: 30px;
+     }
+     h4{
+         position: relative;
+         font-size: 20px;
+         top: 30px;
+     }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            height: 680px;
+            margin-bottom: 20px;
+        }
+        .COL1{
+            display: inline-block;
+            position: relative;
+            top: 40px;
+            left: -100px;
+        }
+        .COL2{
+            display: inline-block;
+            position: relative;
+            top: -460px;
+            left: 90px;
+        }
+        button:hover
+        {
+            transform: scale(0.9);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+<div class="container">
+
+    <h3>A little insipiration is never bad for writing!</h3>
+    <h4>Here is a list of Various Sites that may give you an idea about Writing Your Articles</h4>
+    <ul>
+         <span class="COL1">
+            <li><button><a href="https://medium.com/">Medium</a></button></li>
+            <li><button><a href="https://www.tumblr.com/">Tumblr</a></button></li>
+            <li><button><a href="https://ghost.org/">Ghost</a></button></li>
+            <li><button><a href="https://terriblytinytales.com/">ttt Official</a></button></li>
+            <li><button><a href="https://rupikaur.com/">Rupi Kaur's Blog</a></button></li>
+            <li><button><a href="http://terribleminds.com/ramble/">Chuck Wending's Blog</a></button></li>
+            <li><button><a href="https://goinswriter.com/hello/">Jeff Goins' Blog</a></button></li>
+         </span>
+
+         <span class="COL2">
+            <li><button><a href="https://www.janefriedman.com/">Jane Friedman</a></button></li>
+            <li><button><a href="https://www.thecreativepenn.com/">Joanna Penn's Blog</a></button></li>
+            <li><button><a href="https://thejohnfox.com/">John Fox's Blog</a></button></li>
+            <li><button><a href="https://www.reddit.com/r/Poetry/">Reddit Poetry</a></button></li>
+            <li><button><a href="https://indianbookcritics.in/">The Indian Book Critic</a></button></li>
+            <li><button><a href="http://bookahobuttoncblog.blogspot.com/">The Bookahobuttoncs</a></button></li>
+            <li><button><a href="https://www.poetryproject.org/">The Poetry Project</a></button></li>
+         </span>
+    </ul>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

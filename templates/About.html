@@ -1,0 +1,73 @@
+{% extends "Base.html" %}
+{% block title %}
+    | About
+{% endblock %}
+{% block body_block %}
+
+<style>
+
+    .container{
+        margin-top: -30px;
+        width: 100%;
+        height: 600px;
+        background-image: url('/static/images/BG5.jpg');
+        background-size: cover;
+        background-position: bottom;
+        border-radius: 20px;
+        box-shadow: 0 0 12px #1d1212;
+    }
+
+    .container p{
+        position: relative;
+        top: 60px;
+        height: 100px;
+        text-align: center;
+        font-family: 'Yeseva One', cursive;
+        font-size: 18px;
+        color: #53111b;
+
+    }
+    .container h3{
+        margin-top: 80px;
+        position: relative;
+        top: 50px;
+        text-align: center;
+        font-family: 'Yeseva One', cursive;
+        font-size: 35px;
+        color: #53111b;
+    }
+    .container img{
+        width: 60%;
+        height: 300px;
+        margin-top: 80px;
+        margin-left: 210px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            height: 680px;
+            margin-bottom: 20px;
+        }
+
+        .container img {
+            width: 80%;
+            height: 250px;
+            margin-top: 220px;
+            margin-left: 50px;
+        }
+    }
+</style>
+
+
+<div class="container">
+    <h3>About Us</h3>
+    <p>
+        If there’s one topic that writers can be counted on to tackle at least once in their working lives, it’s writing itself.
+        A good thing too, especially for all those aspiring writers out there looking for a little bit of guidance.
+        For some inspiration and honing of your craft, here's Author'sPoint to give you an suitable environment to write your own creations &
+        make stories, poems, journals, To-Do Lists, Important Notes etc.
+    </p>
+    <img src ="/static/images/AboutUs.jpg">
+</div>
+
+{% endblock %}

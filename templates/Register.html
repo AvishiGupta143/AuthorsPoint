@@ -1,0 +1,157 @@
+{% extends "Base.html" %}
+{% block title %}
+| Register
+{% endblock %}
+{% block body_block %}
+
+
+<style>
+    .container {
+        margin-top: 50px;
+        width: 100%;
+        height: 620px;
+        background-image: url('/static/images/BG5.jpg');
+        background-size: cover;
+        background-position: bottom;
+        border-radius: 20px;
+        box-shadow: 0 0 12px #1d1212;
+        text-align: center;
+        font-family: 'Yeseva One', cursive;
+        color: #53111b;
+    }
+
+    h3 {
+        position: relative;
+        top: 25px;
+        font-size: 35px;
+    }
+
+    h5 {
+        position: relative;
+        top: 30px;
+        font-size: 25px;
+    }
+
+    p {
+        position: relative;
+        top: 35px;
+        font-size: 18px;
+    }
+
+    .register {
+        margin-top: 50px;
+    }
+
+    span {
+        display: block;
+    }
+
+    .Headings {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+
+    input[type='text'],
+    input[type='password'],
+    input[type='email'] {
+        margin-top: -15px;
+        outline: none;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #904251;
+        user-select: none;
+        color: #53111b;
+        padding: 12px 12px;
+        width: 200px;
+        -webkit-transition: width .35s ease-in-out;
+        transition: width .35s ease-in-out;
+        font-family: 'Yeseva One', cursive;
+        font-size: 15px;
+
+    }
+
+    input[type='password']:focus,
+    input[type='email']:focus,
+    input[type='text']:focus {
+        width: 300px;
+    }
+
+    ::placeholder {
+        color: #904251;
+        position: relative;
+        top: 10px;
+        text-align: center;
+    }
+
+    input[type='file'] {
+        margin-left: 130px;
+        margin-top: 5px;
+    }
+
+    input[type='submit'] {
+        margin-top: 15px;
+        border: none;
+        outline: none;
+        background-color: #53111b;
+        color: #F2F3AE;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            height: 700px;
+            margin-bottom: 20px;
+        }
+
+        input[type='file'] {
+            margin-left: 105px;
+            margin-top: 15px;
+        }
+
+        input[type='submit'] {
+            margin-top: 30px;
+        }
+
+        .Headings {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+    }
+
+</style>
+
+
+<div class="container">
+    <h3>Registration Form</h3>
+    <h5>Please Register yourself by filling the Form.</h5>
+    <p>Already Registered? <a href="{{ url_for('Login') }}">Login Here.</a></p>
+
+    <form class="register" action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+        {{ csrf_input }}
+        <span class="Headings">Name:</span>
+        <input class="Answers" id="Name" type="text" placeholder="Enter Your Name" name="Name" required/>
+
+        <span class="Headings">Email:</span>
+        <input class="Answers" id="email" type="email" placeholder="Enter Your Email" name="Email" required/>
+
+
+        <span class="Headings">Password:</span>
+        <input class="Answers" id="password1" type="password" placeholder="Enter Password" name="Password1" required/>
+
+
+        <span class="Headings">Re-enter Password:</span>
+        <input class="Answers" id="password2" type="password" placeholder="Re-enter Password" name="Password2"
+               required/>
+        <br>
+
+
+        <input type="submit" value="Submit">
+        </span>
+    </form>
+</div>
+
+
+
+{% endblock %}

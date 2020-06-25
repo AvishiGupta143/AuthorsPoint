@@ -1,0 +1,22 @@
+{% extends "Base.html" %}
+{% block title %}
+    | Users
+{% endblock %}
+{% block body_block %}
+
+
+
+
+<table border = 1>
+  {% for user in userDetails %}
+  <tr>
+    <td> {{user[0]}} </td>
+    <td> {{user[1]}} </td>
+    <td> {{user[2]}} </td>
+    <td> {{user[3]}} </td>
+    <td> {{user[4]}} </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

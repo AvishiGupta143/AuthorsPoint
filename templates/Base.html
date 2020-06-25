@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Author's Point {% block title %}{% endblock %}</title>
+    <link rel="icon" href="/static/images/LOGO.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body onload="Hide()">
+
+<style>
+    body {
+        background-image: url('/static/images/BG2.jpg');
+        background-size: cover;
+    }
+
+    .navbar-brand {
+        margin-left: 20px;
+        font-family: 'Berkshire Swash', cursive;
+        font-size: 30px;
+
+
+    }
+
+    .navbar-nav {
+        font-family: 'Yeseva One', cursive;
+        font-size: 20px;
+        position: relative;
+        left: 370px;
+
+    }
+
+    {% if session.logged_in %}
+    .navbar-nav {
+        font-family: 'Yeseva One', cursive;
+        font-size: 20px;
+        position: relative;
+        left: 330px;
+
+    }
+
+    #Logout {
+        position: absolute;
+        left: 870px;
+    }
+
+    {% endif %}
+
+
+    #Register {
+        position: absolute;
+        left: 750px;
+    }
+
+    #Login {
+        position: absolute;
+        left: 860px;
+    }
+    #welmessage{
+        position: absolute;
+        left: 630px;
+        width: 250px;
+    }
+
+    @media screen and (max-width: 768px) {
+        body {
+            background-image: url('/static/images/BG2.jpg');
+            background-size: cover;
+        }
+
+        .navbar-nav {
+            font-family: 'Yeseva One', cursive;
+            font-size: 20px;
+            position: relative;
+            left: 20px;
+
+        }
+
+
+        .nav-link {
+            width: 90%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.56);
+        }
+
+        #welmessage {
+            position: relative;
+            left: 0px;
+            width: 90%;
+            border-bottom: none;
+        }
+
+        #Register {
+            position: relative;
+            left: 0px;
+        }
+
+        #Login {
+            position: relative;
+            left: 0px;
+        }
+
+        #Logout {
+            position: relative;
+            left: 0px;
+        }
+
+        .collapse {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+
+        }
+    }
+
+</style>
+
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a style="color:#eca556; " class="navbar-brand" href="{{ url_for('Home') }}">Author'sPoint</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <a style="color: #eca556; " class="nav-link" href="{{ url_for('Home') }}">Home</a>
+            <a style="color: #eca556;" class="nav-link" href="{{ url_for('About') }}">About</a>
+            <a style="color: #eca556;" class="nav-link" href="{{ url_for('Articles') }}">Articles</a>
+            <a style="color: #eca556;" class="nav-link" href="{{ url_for('Help') }}">Help</a>
+            {% if session.logged_in %}
+            <a id="welmessage" style="color: #eca556;" class="nav-link" href="{{ url_for('Home') }}">Hello! {{ session.name }}</a>
+            <a id="Dashboard" style="color: #eca556;" class="nav-link" href="{{ url_for('Dashboard') }}">Dashboard</a>
+            <a id="Logout" style="color: #eca556;" class="nav-link" href="{{ url_for('Logout') }}">Logout</a>
+            {% else %}
+            <a id="Register" style=" color: #eca556;" class="nav-link" href="{{ url_for('Register') }}">Register</a>
+            <a id="Login" style="color: #eca556;" class="nav-link" href="{{ url_for('Login') }}">Login</a>
+            {% endif %}
+
+
+        </ul>
+
+    </div>
+</nav>
+
+{% include 'includes/_messages.html' %}
+
+
+{% block body_block %}
+{% endblock %}
+{{ ckeditor.load() }}
+{{ ckeditor.config() }}
+</body>
+<script>
+    function Hide() {
+        setTimeout(function () {
+            $('#Alert').remove()
+        }, 3000);
+    }
+
+</script>
+</html>

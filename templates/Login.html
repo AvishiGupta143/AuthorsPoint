@@ -1,0 +1,165 @@
+{% extends "Base.html" %}
+{% block title %}
+    | Login
+{% endblock %}
+{% block body_block %}
+
+
+<style>
+    .container{
+        margin-top: 50px;
+        width: 100%;
+        height: 620px;
+        background-image: url('/static/images/BG5.jpg');
+        background-size: cover;
+        background-position: bottom;
+        border-radius: 20px;
+        box-shadow: 0 0 12px #1d1212;
+        text-align: center;
+        font-family: 'Yeseva One', cursive;
+        color: #53111b;
+    }
+
+    h3{
+        position: relative;
+        top: 50px;
+        font-size: 35px;
+    }
+    h5{
+        position: relative;
+        top: 60px;
+        font-size: 25px;
+    }
+    p{
+        position: relative;
+        top: 70px;
+        font-size: 18px;
+    }
+    .register{
+        margin-top: 120px;
+    }
+    span{
+        display: block;
+    }
+    .Headings{
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    input[type='text'],
+    input[type='password'],
+    input[type='email']
+    {
+        margin-top: -15px;
+        outline: none;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #904251;
+        user-select: none;
+        color: #53111b;
+        padding: 12px 12px;
+        width: 200px;
+        -webkit-transition: width .35s ease-in-out;
+        transition: width .35s ease-in-out;
+        font-family: 'Yeseva One', cursive;
+        font-size: 15px;
+
+    }
+    input[type='password']:focus,
+    input[type='email']:focus,
+    input[type='text']:focus
+    {
+      width: 300px;
+    }
+    ::placeholder
+    {
+        color: #904251;
+        position: relative;
+        top: 10px;
+        text-align: center;
+    }
+    input[type='file']{
+        margin-left: 130px;
+        margin-top: 5px;
+    }
+    input[type='submit']{
+        margin-top: 15px;
+        border: none;
+        outline: none;
+        background-color: #53111b;
+        color: #F2F3AE;
+        padding: 12px;
+        border-radius: 12px;
+        font-family: 'Yeseva One', cursive;
+    }
+    @media screen and (max-width: 768px) {
+        .container {
+            height: 500px;
+            margin-bottom: 20px;
+        }
+    }
+
+
+
+</style>
+
+
+
+
+<div class="container">
+    <h3>Login Here</h3>
+    <h5>Please Log-In to your Account</h5>
+    <p>Don't have an Account?<a href="{{ url_for('Register') }}"> Register Here.</a></p>
+    <form class="register" action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+        {{ csrf_input }}
+
+        <span class="Headings">Name:</span>
+        <input class="Answers" id="email" type="text" placeholder="Enter Your Name" name="Name" required/>
+
+
+        <span class="Headings">Password:</span>
+        <input class="Answers" id="password1" type="password" placeholder="Enter Password" name="Password1" required/>
+
+        <span>
+        <input type="submit" value="Submit">
+        </span>
+    </form>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
